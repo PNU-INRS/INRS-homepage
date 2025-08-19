@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연구실 홈페이지 - 연구라이프</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for smooth scrolling and font */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Darker text */
+        }
+        .section-padding {
+            padding: 80px 0; /* Consistent padding for sections */
+        }
+        .category-heading {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            color: #4338ca; /* indigo-700 */
+            border-bottom: 2px solid #a5b4fc; /* indigo-200 */
+            padding-bottom: 10px;
+        }
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 300px;
+        }
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slider-image.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+        <!-- Header and Navigation Bar -->
+    <header class="bg-white shadow-md fixed w-full z-50 top-0">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
+                <a href="index.html">INRS</a>
+            </div>
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6" id="desktop-menu">
+                <li><a href="intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">인사말</a></li>
+                <li><a href="research_list.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">연구목록</a></li>
+                <li><a href="professor_intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">교수소개</a></li>
+                <li><a href="members.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">구성원</a></li>
+                <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">프로젝트</a></li>
+                <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">연구라이프</a></li>
+                <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">수업</a></li>
+                <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">논문</a></li>
+                <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">졸업생 현황</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none focus:text-indigo-700">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">인사말</a></li>
+                <li><a href="research_list.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구목록</a></li>
+                <li><a href="professor_intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">교수소개</a></li>
+                <li><a href="members.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">구성원</a></li>
+                <li><a href="projects.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">프로젝트</a></li>
+                <li><a href="research_life.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구라이프</a></li>
+                <li><a href="courses.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">수업</a></li>
+                <li><a href="publications.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">논문</a></li>
+                <li><a href="alumni.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">졸업생 현황</a></li>
+            </ul>
+        </div>
+    </header>
+    <script>
+        // Mobile menu toggle logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+
+    <main class="pt-24"> <!-- Adjusted padding-top for fixed header -->
+        <!-- 연구라이프 (Research Life) Section -->
+        <section id="research_life" class="section-padding bg-gray-50 shadow-sm rounded-lg mx-auto max-w-6xl my-8 p-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-indigo-800 mb-8 text-center">연구실 라이프</h2>
+
+                <!-- 연구장비 (Research Equipment) -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 mb-8 flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">연구 장비</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            연구실은 고사양 워크스테이션과 X선 회절 간섭계 장비(talint edu)를 보유하고 있습니다.
+                            이를 통해 고해상도 영상 분석 및 복잡한 데이터 처리가 효율적으로 이루어집니다.
+                        </p>
+                        <a href="equipment.html" class="mt-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                        장비 자세히 보기
+                        </a>
+                    </div>
+                    <div class="md:w-1/2 mt-4 md:mt-0 slider-container" id="equipment-slider">
+                        <!-- 이미지들은 JavaScript로 동적 로드 -->
+                    </div>
+                </div>
+
+                <!-- 학술대회 및 워크숍 참여 (Conferences & Workshops) -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 mb-8 flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">학술대회 및 워크숍 참여</h3>
+                        <p class="text-gray-600 leading-relaxed">국내외 학술대회에 적극적으로 참여하여 연구 성과를 발표하고 교류합니다.</p>
+                    </div>
+                    <div class="md:w-1/2 mt-4 md:mt-0 slider-container" id="conference-slider">
+                        <!-- 이미지들은 JavaScript로 동적 로드 -->
+                    </div>
+                </div>
+                
+                <!-- 친목 활동 (Social Activities) -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">친목 활동</h3>
+                        <p class="text-gray-600 leading-relaxed">연구 외적으로도 팀 빌딩 및 친목 도모를 위한 다양한 활동을 즐깁니다.</p>
+                    </div>
+                    <div class="md:w-1/2 mt-4 md:mt-0 slider-container" id="social-slider">
+                        <!-- 이미지들은 JavaScript로 동적 로드 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">&copy; 2025 연구실. All rights reserved.</p>
+            <p class="text-gray-400">연구실: 기계관 119호 | 교수연구실: 기계관 911호</p>
+            <p class="text-gray-400">문의: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const equipmentImages = [
+                '워크스테이션 내부.jpg',
+                'talint_edu_1.jpg',
+                'talint_edu_2.jpg',
+                'https://placehold.co/400x250/d1d5db/374151?text=장비사진4'
+            ];
+            const conferenceImages = [
+                '오오성 박사 수상.jpg',
+                'xnpig.jpg',
+                'IEEE 발표.jpg',
+                '엑스레이.jpg'
+            ];
+            const socialImages = [
+                '회식이다.jpg',
+                '샤브샤브.jpg',
+                '동백섬덥다.jpg',
+                '관우따봉.jpg'
+            ];
+
+            function createSlider(containerId, images) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+
+                images.forEach((src, index) => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `슬라이드 이미지 ${index + 1}`;
+                    img.className = 'slider-image';
+                    if (index === 0) {
+                        img.classList.add('active');
+                    }
+                    container.appendChild(img);
+                });
+
+                let currentIndex = 0;
+                setInterval(() => {
+                    const allImages = container.querySelectorAll('.slider-image');
+                    allImages[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % allImages.length;
+                    allImages[currentIndex].classList.add('active');
+                }, 5000); // 5초마다 이미지 변경
+            }
+
+            createSlider('equipment-slider', equipmentImages);
+            createSlider('conference-slider', conferenceImages);
+            createSlider('social-slider', socialImages);
+        });
+    </script>
+</body>
+</html>
+
+
