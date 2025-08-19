@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연구실 홈페이지 - 연구 장비</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for smooth scrolling and font */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Darker text */
+        }
+        .section-padding {
+            padding: 80px 0; /* Consistent padding for sections */
+        }
+        .image-container {
+            /* Ensures images maintain their aspect ratio and don't overflow */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .vertical-image {
+            max-height: 48rem; /* Tall image constraint */
+            width: auto;
+        }
+        .horizontal-image {
+            max-width: 100%; /* Wide image constraint */
+            height: auto;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header and Navigation Bar -->
+    <header class="bg-white shadow-md fixed w-full z-50 top-0">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
+                <a href="index.html">INRS</a>
+            </div>
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6" id="desktop-menu">
+                <li><a href="intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">인사말</a></li>
+                <li><a href="research_list.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">연구목록</a></li>
+                <li><a href="professor_intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">교수소개</a></li>
+                <li><a href="members.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">구성원</a></li>
+                <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">프로젝트</a></li>
+                <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">연구라이프</a></li>
+                <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">수업</a></li>
+                <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">논문</a></li>
+                <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">졸업생 현황</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none focus:text-indigo-700">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">인사말</a></li>
+                <li><a href="research_list.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구목록</a></li>
+                <li><a href="professor_intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">교수소개</a></li>
+                <li><a href="members.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">구성원</a></li>
+                <li><a href="projects.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">프로젝트</a></li>
+                <li><a href="research_life.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구라이프</a></li>
+                <li><a href="courses.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">수업</a></li>
+                <li><a href="publications.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">논문</a></li>
+                <li><a href="alumni.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">졸업생 현황</a></li>
+            </ul>
+        </div>
+    </header>
+    <script>
+        // Mobile menu toggle logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+
+    <main class="pt-24"> <!-- Adjusted padding-top for fixed header -->
+        <section id="equipment" class="section-padding bg-gray-50 shadow-sm rounded-lg mx-auto max-w-6xl my-8 p-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-indigo-800 mb-8 text-center">연구 장비 상세 소개</h2>
+                <div class="flex flex-col space-y-12">
+                    <!-- 장비 소개 1: 고사양 워크스테이션 (텍스트 왼쪽, 사진 오른쪽) -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-8">
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">고사양 워크스테이션</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                본 연구실은 딥러닝 모델 학습과 대규모 데이터 분석을 위해 NVIDIA 지포스 RTX 5090 32GB 그래픽 카드 2개와 총 128GB의 서버용 RAM을 탑재한 고사양 워크스테이션을 운용하고 있습니다. 이 강력한 컴퓨팅 환경은 연구의 효율성을 극대화합니다.
+                            </p>
+                        </div>
+                        <div class="md:w-1/2 mt-4 md:mt-0 image-container">
+                            <img src="워크스테이션 가동중.jpg" alt="고사양 워크스테이션 사진" class="rounded-lg shadow-md vertical-image object-cover">
+                        </div>
+                    </div>
+
+                    <!-- 장비 소개 2: X선 회절 간섭계 장비(talint edu) (텍스트 위, 사진 아래) -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">X선 회절 간섭계 장비(talint edu)</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            talint edu는 X선 회절 간섭계를 활용하여 물질의 미세 구조를 비파괴적으로 분석하는 데 사용되는 핵심 장비입니다.
+                            고해상도 영상 획득을 통해 재료 과학 및 의료 영상 연구에 기여합니다.
+                        </p>
+                        <div class="image-container">
+                             <img src="talint_edu_1.jpg" alt="X선 회절 간섭계 장비 사진" class="rounded-lg shadow-md horizontal-image object-cover">
+                        </div>
+                    </div>
+                    
+                    <!-- 추가 장비 소개를 여기에 넣을 수 있습니다 -->
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">&copy; 2025 연구실. All rights reserved.</p>
+            <p class="text-gray-400">연구실: 기계관 119호 | 교수연구실: 기계관 911호</p>
+            <p class="text-gray-400">문의: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
+        </div>
+    </footer>
+</body>
+</html>
