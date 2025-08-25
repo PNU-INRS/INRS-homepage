@@ -40,7 +40,7 @@
 </head>
 <body class="antialiased">
 
-        <!-- Header and Navigation Bar -->
+    <!-- Header and Navigation Bar -->
     <header class="bg-white shadow-md fixed w-full z-50 top-0">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
@@ -70,7 +70,7 @@
             <ul class="flex flex-col space-y-2 p-4">
                 <li><a href="intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">인사말</a></li>
                 <li><a href="research_list.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구목록</a></li>
-                <li><a href="professor_intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">교수소개</a></li>
+                <li><a href="professor_intro.html" class="block text-gray-100 p-2 rounded-md transition duration-300">교수소개</a></li>
                 <li><a href="members.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">구성원</a></li>
                 <li><a href="projects.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">프로젝트</a></li>
                 <li><a href="research_life.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구라이프</a></li>
@@ -80,24 +80,24 @@
             </ul>
         </div>
     </header>
-    <script>
-        // Mobile menu toggle logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        });
-    </script>
-
 
     <main class="pt-24"> <!-- Adjusted padding-top for fixed header -->
         <!-- 구성원 (Members) Section -->
         <section id="members" class="section-padding bg-gray-50 shadow-sm rounded-lg mx-auto max-w-6xl my-8 p-8">
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl font-bold text-indigo-800 mb-8 text-center">구성원</h2>
+
+                <!-- 박사 후 연구생 (Postdoctoral Researchers) -->
+                <h3 class="category-heading">박사 후 연구생</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <!-- Member Card: AMIN KHALIQ -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
+                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=AM+KH" alt="AMIN KHALIQ 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">AMIN KHALIQ</h3>
+                        <p class="text-gray-600">박사 후 연구생</p>
+                        <p class="text-gray-600 text-sm mt-1">주요 연구: Fusion of X-ray and neutron imaging modalities to enable advanced AI-driven analysis</p>
+                    </div>
+                </div>
 
                 <!-- 박사과정 (PhD Candidates) -->
                 <h3 class="category-heading">박사과정</h3>
@@ -195,7 +195,7 @@
         </section>
     </main>
 
-        <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8 mt-16 rounded-t-lg">
         <div class="container mx-auto px-4 text-center">
             <p class="text-lg mb-2">&copy; 2025 연구실. All rights reserved.</p>
@@ -204,10 +204,5 @@
             <p class="text-gray-400">문의: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
         </div>
     </footer>
-
 </body>
 </html>
-
-
-
-
