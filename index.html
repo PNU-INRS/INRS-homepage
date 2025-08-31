@@ -40,7 +40,7 @@
 </head>
 <body class="antialiased">
 
-        <!-- Header and Navigation Bar -->
+    <!-- Header and Navigation Bar -->
     <header class="bg-white shadow-md fixed w-full z-50 top-0">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
@@ -115,61 +115,70 @@
                 머신러닝을 활용한 X선 및 중성자 영상 융합 연구를 선도하며, 최신 기술과 혁신적인 아이디어로 학문 발전에 기여하고 있습니다.
                 상단 메뉴를 통해 각 연구 분야, 구성원, 프로젝트 등 다양한 정보를 확인하실 수 있습니다.
             </p>
+            <!-- Recruitment button moved here -->
+            <a href="job_posting.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 mt-6">연구 보조 모집</a>
         </section>
     </main>
 
-        <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8 mt-16 rounded-t-lg">
         <div class="container mx-auto px-4 text-center">
             <p class="text-lg mb-2">&copy; 2025 연구실. All rights reserved.</p>
-            <p class="text-gray-400">연구실: 기계관 119호 | 제3공학관 3109호</p>
-            <p class="text-gray-400">교수연구실: 기계관 911호</p>
+            <p class="text-gray-400">연구실: 기계관 119호 | 교수연구실: 기계관 911호</p>
             <p class="text-gray-400">문의: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
         </div>
     </footer>
 
-
     <script>
         // Image Slider Logic
         const images = [
-            'pictures/life_pictures/동백섬덥다.jpg',
-            'pictures/life_pictures/엑스더스카이따봉.jpg',
-            'pictures/life_pictures/동백섬좋다.jpg',
-            'pictures/life_pictures/전망좋다.jpg'
+            'https://placehold.co/1920x1080/4F46E5/FFFFFF?text=INRS+Lab',
+            'https://placehold.co/1920x1080/4338CA/FFFFFF?text=Pusan+National+University',
+            'https://placehold.co/1920x1080/3730A3/FFFFFF?text=Research+in+Action',
+            'https://placehold.co/1920x1080/312E81/FFFFFF?text=Join+Our+Team'
         ];
         let currentImageIndex = 0;
         const imageSlider = document.getElementById('image-slider');
 
         function updateSliderImage() {
-            // Create a new image element
-            const newImage = document.createElement('img');
-            newImage.src = images[currentImageIndex];
-            newImage.alt = `연구실 이미지 ${currentImageIndex + 1}`;
-            newImage.className = 'slider-image absolute inset-0 w-full h-full object-cover hidden-fade';
+             // Handle the case where the image URL is broken
+             const newImage = new Image();
+             newImage.onerror = () => {
+                 console.error(`Failed to load image: ${images[currentImageIndex]}`);
+                 // Fallback to the next image in the array
+                 currentImageIndex = (currentImageIndex + 1) % images.length;
+                 updateSliderImage();
+             };
+             newImage.src = images[currentImageIndex];
+             newImage.alt = `연구실 이미지 ${currentImageIndex + 1}`;
+             newImage.className = 'slider-image absolute inset-0 w-full h-full object-cover hidden-fade';
 
-            // Append new image and fade it in
-            imageSlider.appendChild(newImage);
+             // Wait for image to load before appending
+             newImage.onload = () => {
+                 // Append new image and fade it in
+                 imageSlider.appendChild(newImage);
 
-            // Remove previous images after transition
-            const oldImages = imageSlider.querySelectorAll('.slider-image');
-            if (oldImages.length > 1) {
-                // Remove all but the last two (current and previous)
-                for (let i = 0; i < oldImages.length - 2; i++) {
-                    imageSlider.removeChild(oldImages[i]);
-                }
-                // Fade out the second to last image (the one that was previously visible)
-                oldImages[oldImages.length - 2].classList.remove('visible-fade');
-                oldImages[oldImages.length - 2].classList.add('hidden-fade');
-            }
+                 // Remove previous images after transition
+                 const oldImages = imageSlider.querySelectorAll('.slider-image');
+                 if (oldImages.length > 1) {
+                     // Remove all but the last two (current and previous)
+                     for (let i = 0; i < oldImages.length - 2; i++) {
+                         imageSlider.removeChild(oldImages[i]);
+                     }
+                     // Fade out the second to last image (the one that was previously visible)
+                     oldImages[oldImages.length - 2].classList.remove('visible-fade');
+                     oldImages[oldImages.length - 2].classList.add('hidden-fade');
+                 }
 
-            // Make the new image visible
-            setTimeout(() => {
-                newImage.classList.remove('hidden-fade');
-                newImage.classList.add('visible-fade');
-            }, 10); // Small delay to ensure transition applies
+                 // Make the new image visible
+                 setTimeout(() => {
+                     newImage.classList.remove('hidden-fade');
+                     newImage.classList.add('visible-fade');
+                 }, 10); // Small delay to ensure transition applies
 
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-        }
+                 currentImageIndex = (currentImageIndex + 1) % images.length;
+             };
+         }
 
         // Initial image load
         updateSliderImage();
@@ -178,7 +187,3 @@
     </script>
 </body>
 </html>
-
-
-
-
