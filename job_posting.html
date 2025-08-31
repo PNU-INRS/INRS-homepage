@@ -40,7 +40,81 @@
                 <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">프로젝트</a></li>
                 <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">연구라이프</a></li>
                 <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">수업</a></li>
-                <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">논문</a><대</li>
+                <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">논문</a></li>
+                <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">졸업생 현황</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none focus:text-indigo-700">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">인사말</a></li>
+                <li><a href="research_list.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구목록</a></li>
+                <li><a href="professor_intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">교수소개</a></li>
+                <li><a href="members.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">구성원</a></li>
+                <li><a href="projects.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">프로젝트</a></li>
+                <li><a href="research_life.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구라이프</a></li>
+                <li><a href="courses.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">수업</a></li>
+                <li><a href="publications.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">논문</a></li>
+                <li><a href="alumni.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">졸업생 현황</a></li>
+            </ul>
+        </div>
+    </header>
+    <script>
+        // Mobile menu toggle logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+    <main class="pt-24 md:pt-32">
+        <div class="container mx-auto px-4">
+            <section class="bg-white shadow-xl rounded-xl p-8 md:p-12 max-w-4xl mx-auto my-8 md:my-16">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-center text-indigo-700 mb-2">실험실 운영 보조 아르바이트 모집 공고</h1>
+                <p class="text-center text-gray-500 mb-8">부산대학교 이승욱 교수 연구실 - 학부 아르바이트 모집</p>
+
+                <div class="space-y-8">
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        저희 연구실에서 연구실 운영 보조 아르바이트를 모집합니다. 처음에는 연구실 정리와 기본 관리 업무를 맡고, 성실히 참여하면 추후 연구 보조 기회도 열려 있습니다.
+                    </p>
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-indigo-600 mb-4 border-b-2 border-indigo-200 pb-2">📍 업무 내용</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 pl-4">
+                            <li>연구실 정리 및 운영 지원 (케이블 타이 작업, 공구함 정리, 라벨링, 불용품 정리·폐기 등)</li>
+                            <li>컴퓨터 관리 보조 (PC 정리, 소프트웨어 업데이트 확인 등)</li>
+                            <li>소모품 점검 및 간단 구매 지원</li>
+                            <li>기타 연구 업무보조</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-indigo-600 mb-4 border-b-2 border-indigo-200 pb-2">📍 근무 조건</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 pl-4">
+                            <li>근무 요일: 매주 금요일 7시간 (오전~오후, 점심 포함)</li>
+                            <li>특별한 주에는 주말 포함하여 다른 요일로 대체 가능</li>
+                            <li>급여: 월 정액 30만원</li>
+                            <li>추후 기여도 및 업무 시간에 따라 급여 조정 가능</li>
+                            <li>근무 외 시간에도 연구실 자리를 자유롭게 이용할 수 있습니다 (자습, 공부 가능)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-indigo-600 mb-4 border-b-2 border-indigo-200 pb-2">📍 우대 사항</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 pl-4">
+                            <li>2학년 군필자 환영 (책임감 있게 장기 참여 가능자)</li>
+                            <li>성실하고 적극적인 학생</li>
+                            <li>전동드릴 등 간단한 공구 사용 가능자 우대</li>
                         </ul>
                     </div>
 
