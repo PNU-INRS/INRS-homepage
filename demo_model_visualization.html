@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-Ray Guided Neutron Image Enhancement</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --accent-xray: #38bdf8;
+            --accent-neutron: #f59e0b;
+            --accent-model: #10b981;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--accent-xray), var(--accent-model));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: #94a3b8;
+            max-width: 600px;
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+
+        .visualization-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        @media (min-width: 1024px) {
+            .visualization-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .card.card-xray::before {
+            background-color: var(--accent-xray);
+        }
+
+        .card.card-neutron::before {
+            background-color: var(--accent-neutron);
+        }
+
+        .card.card-enhanced::before {
+            background-color: var(--accent-model);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .canvas-container {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Tag styled labels */
+        .tag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+
+        .tag-xray {
+            color: var(--accent-xray);
+        }
+
+        .tag-neutron {
+            color: var(--accent-neutron);
+            box-shadow: 0 0 10px var(--accent-neutron);
+        }
+
+        .tag-enhanced {
+            color: var(--accent-model);
+        }
+
+        /* Model representation */
+        .model-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 2px dashed #475569;
+            border-radius: 16px;
+            position: relative;
+            min-width: 250px;
+            z-index: 10;
+        }
+
+        .model-container:hover {
+            border-color: var(--accent-model);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .model-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .model-title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        .model-desc {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Flow animations */
+        .flow-path {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        @media (min-width: 1024px) {
+            .flow-path {
+                flex-direction: row;
+                padding: 0 20px;
+            }
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #475569;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .flow-path.active .dot {
+            animation: flowRight 1.5s infinite linear;
+        }
+
+        .flow-path.active .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .flow-path.active .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .flow-path.active .dot:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes flowRight {
+            0% {
+                transform: scale(1);
+                background-color: #475569;
+            }
+
+            50% {
+                transform: scale(1.5);
+                background-color: var(--accent-model);
+                box-shadow: 0 0 10px var(--accent-model);
+            }
+
+            100% {
+                transform: scale(1);
+                background-color: #475569;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                text-shadow: 0 0 0 rgba(16, 185, 129, 0);
+            }
+
+            50% {
+                transform: scale(1.1);
+                text-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+            }
+
+            100% {
+                transform: scale(1);
+                text-shadow: 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        .action-btn {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .btn-xray {
+            border-color: var(--accent-xray);
+            color: var(--accent-xray);
+        }
+
+        .btn-xray:hover:not(:disabled) {
+            background-color: var(--accent-xray);
+            color: #fff;
+        }
+
+        .btn-neutron {
+            border-color: var(--accent-neutron);
+            color: var(--accent-neutron);
+        }
+
+        .btn-neutron:hover:not(:disabled) {
+            background-color: var(--accent-neutron);
+            color: #fff;
+        }
+
+        .btn-model {
+            background-color: var(--accent-model);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-model:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-model:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .empty-state {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        canvas {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        canvas.show {
+            opacity: 1;
+        }
+
+        .flow-path .dot {
+            opacity: 0.3;
+        }
+
+        .flow-path.active .dot {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Deep Learning Image Enhancement</h1>
+        <p>A demonstration of cross-modality image restoration. The deep learning model uses crisp, high-resolution
+            X-ray images as a structural guide to denoise and enhance low-resolution, noisy Neutron radiograph images.
+        </p>
+    </div>
+
+    <div class="visualization-container">
+
+        <!-- Inputs Column -->
+        <div class="column">
+            <!-- X-Ray Card -->
+            <div class="card card-xray">
+                <h3><span style="color:var(--accent-xray);">⚗️</span> Guide Image (X-Ray)</h3>
+                <p>High resolution, clear structural boundaries, but different material contrast.</p>
+                <div class="canvas-container">
+                    <div class="empty-state" id="xray-empty">Waiting for sample...</div>
+                    <canvas id="xray-canvas" width="300" height="300"></canvas>
+                    <div class="tag tag-xray" style="display:none;" id="xray-tag">HR / CLEAR</div>
+                </div>
+                <button class="action-btn btn-xray" id="btn-xray">Acquire X-Ray image</button>
+            </div>
+
+            <!-- Neutron Card -->
+            <div class="card card-neutron">
+                <h3><span style="color:var(--accent-neutron);">☢️</span> Target Image (Neutron)</h3>
+                <p>Target material contrast, but heavily degraded by noise and low resolution.</p>
+                <div class="canvas-container">
+                    <div class="empty-state" id="neutron-empty">Waiting for sample...</div>
+                    <canvas id="neutron-canvas" width="300" height="300"></canvas>
+                    <div class="tag tag-neutron" style="display:none;" id="neutron-tag">LR / NOISY</div>
+                </div>
+                <button class="action-btn btn-neutron" id="btn-neutron">Acquire Neutron image</button>
+            </div>
+        </div>
+
+        <!-- Flow into Model -->
+        <div class="flow-path">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <!-- Model Column -->
+        <div class="column" style="justify-content: center; flex: 0.8;">
+            <div class="model-container">
+                <div class="model-icon">🧠</div>
+                <div class="model-title">DL Enhance Model</div>
+                <div class="model-desc">
+                    Spatial Feature Alignment<br>
+                    + Guided Denoising Network
+                </div>
+                <button class="btn-model" id="btn-model" disabled>Run Model</button>
+            </div>
+        </div>
+
+        <!-- Flow out of Model -->
+        <div class="flow-path" style="--accent-model: var(--accent-model);">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <!-- Output Column -->
+        <div class="column" style="justify-content: center;">
+            <div class="card card-enhanced">
+                <h3><span style="color:var(--accent-model);">✨</span> Enhanced Neutron</h3>
+                <p>Retains neutron material contrast while adopting X-ray spatial resolution.</p>
+                <div class="canvas-container">
+                    <div class="empty-state" id="enhanced-empty">Waiting for model processing...</div>
+                    <canvas id="enhanced-canvas" width="300" height="300"></canvas>
+                    <div class="tag tag-enhanced" style="display:none;" id="enhanced-tag">HR / DENOISED</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Drawing utilities to simulate the images for the demo
+        function drawShape(ctx, width, height) {
+            // Background
+            ctx.fillStyle = '#050505';
+            ctx.fillRect(0, 0, width, height);
+
+            // Draw a complex shape (e.g., mechanical part with a hole)
+            ctx.translate(width / 2, height / 2);
+
+            // Outer gear/shape
+            ctx.fillStyle = '#cccccc';
+            ctx.beginPath();
+            ctx.arc(0, 0, width * 0.35, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Inner hole
+            ctx.fillStyle = '#050505';
+            ctx.beginPath();
+            ctx.arc(0, 0, width * 0.15, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Spokes/Details
+            ctx.lineWidth = 20;
+            ctx.strokeStyle = '#050505';
+            ctx.lineCap = 'round';
+            for (let i = 0; i < 6; i++) {
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                const angle = i * (Math.PI / 3);
+                ctx.lineTo(Math.cos(angle) * width * 0.4, Math.sin(angle) * height * 0.4);
+                ctx.stroke();
+            }
+
+            // Small accent dots (simulating material variations)
+            ctx.fillStyle = '#ffffff';
+            for (let i = 0; i < 6; i++) {
+                ctx.beginPath();
+                const angle = i * (Math.PI / 3) + (Math.PI / 6);
+                ctx.arc(Math.cos(angle) * width * 0.25, Math.sin(angle) * height * 0.25, 8, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.translate(-width / 2, -height / 2);
+        }
+
+        function applyNoise(ctx, width, height, intensity) {
+            const imgData = ctx.getImageData(0, 0, width, height);
+            const data = imgData.data;
+            for (let i = 0; i < data.length; i += 4) {
+                if (Math.random() < intensity) {
+                    // Add salt and pepper noise
+                    const noiseVal = Math.random() > 0.5 ? 255 : 0;
+                    // Blend noise
+                    const opacity = Math.random() * 0.8;
+                    data[i] = data[i] * (1 - opacity) + noiseVal * opacity;
+                    data[i + 1] = data[i + 1] * (1 - opacity) + noiseVal * opacity;
+                    data[i + 2] = data[i + 2] * (1 - opacity) + noiseVal * opacity;
+                }
+            }
+            ctx.putImageData(imgData, 0, 0);
+        }
+
+        function drawXRay() {
+            const canvas = document.getElementById('xray-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            drawShape(ctx, canvas.width, canvas.height);
+
+            // Color grading for X-ray (blueish grayscale)
+            ctx.fillStyle = 'rgba(0, 100, 255, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawNeutron() {
+            const canvas = document.getElementById('neutron-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+            // Simulate blur / low resolution by drawing smaller then scaling
+            const offscreen = document.createElement('canvas');
+            offscreen.width = canvas.width / 4;
+            offscreen.height = canvas.height / 4;
+            const offCtx = offscreen.getContext('2d');
+
+            drawShape(offCtx, offscreen.width, offscreen.height);
+
+            // Draw scaled up to main canvas to cause pixelation/blur
+            ctx.imageSmoothingEnabled = false;
+            ctx.drawImage(offscreen, 0, 0, canvas.width, canvas.height);
+
+            // Color grading for Neutron (warmer/greenish contrast difference)
+            ctx.fillStyle = 'rgba(200, 100, 0, 0.2)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Apply heavy noise
+            applyNoise(ctx, canvas.width, canvas.height, 0.6);
+        }
+
+        function drawEnhanced() {
+            const canvas = document.getElementById('enhanced-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+            // High resolution base
+            drawShape(ctx, canvas.width, canvas.height);
+
+            // Apply the Neutron color grading (to show it kept the target modality)
+            ctx.fillStyle = 'rgba(200, 100, 0, 0.2)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Apply very subtle noise to look realistic but enhanced
+            applyNoise(ctx, canvas.width, canvas.height, 0.05);
+        }
+
+        let xrayAcquired = false;
+        let neutronAcquired = false;
+
+        function checkModelReady() {
+            if (xrayAcquired && neutronAcquired) {
+                document.getElementById('btn-model').disabled = false;
+            }
+        }
+
+        document.getElementById('btn-xray').addEventListener('click', function () {
+            this.disabled = true;
+            this.textContent = 'Acquiring X-Ray...';
+
+            setTimeout(() => {
+                drawXRay();
+                document.getElementById('xray-canvas').classList.add('show');
+                document.getElementById('xray-empty').style.display = 'none';
+                document.getElementById('xray-tag').style.display = 'block';
+                this.textContent = 'X-Ray Image Acquired';
+                xrayAcquired = true;
+                checkModelReady();
+            }, 600);
+        });
+
+        document.getElementById('btn-neutron').addEventListener('click', function () {
+            this.disabled = true;
+            this.textContent = 'Acquiring Neutron...';
+
+            setTimeout(() => {
+                drawNeutron();
+                document.getElementById('neutron-canvas').classList.add('show');
+                document.getElementById('neutron-empty').style.display = 'none';
+                document.getElementById('neutron-tag').style.display = 'block';
+                this.textContent = 'Neutron Image Acquired';
+                neutronAcquired = true;
+                checkModelReady();
+            }, 1000);
+        });
+
+        document.getElementById('btn-model').addEventListener('click', function () {
+            this.disabled = true;
+            this.textContent = 'Deep Learning Processing...';
+
+            // Activate flow animations
+            document.querySelectorAll('.flow-path').forEach(el => el.classList.add('active'));
+
+            setTimeout(() => {
+                drawEnhanced();
+                document.getElementById('enhanced-canvas').classList.add('show');
+                document.getElementById('enhanced-empty').style.display = 'none';
+                document.getElementById('enhanced-tag').style.display = 'block';
+                this.textContent = 'Enhancement Complete!';
+
+                // Stop flow animations shortly after finishing
+                setTimeout(() => {
+                    document.querySelectorAll('.flow-path').forEach(el => el.classList.remove('active'));
+                    this.textContent = 'Run Enhancement Again';
+                    this.disabled = false;
+                }, 1500);
+            }, 2500);
+        });
+    </script>
+</body>
+
+</html>
