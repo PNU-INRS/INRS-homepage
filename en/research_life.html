@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Lab - Lab Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        .section-padding { padding: 80px 0; }
+        .slider-container { position: relative; overflow: hidden; width: 100%; height: 300px; border-radius: 0.5rem; }
+        .slider-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease-in-out; z-index: 1; }
+        .slider-image.active { opacity: 1; z-index: 2; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md fixed w-full z-50 top-0">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
+                <a href="index.html">INRS</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <ul class="hidden md:flex space-x-6" id="desktop-menu">
+                    <li><a href="intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">About Us</a></li>
+                    <li><a href="research_list.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Research</a></li>
+                    <li><a href="professor_intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Professor</a></li>
+                    <li><a href="members.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Members</a></li>
+                    <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Projects</a></li>
+                    <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Lab Life</a></li>
+                    <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Courses</a></li>
+                    <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Publications</a></li>
+                    <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Alumni</a></li>
+                </ul>
+                <a href="../research_life.html" class="text-xs font-bold bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2.5 py-1.5 rounded transition duration-300 ml-4">KOR</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="research_life.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">Lab Life</a></li>
+                <li><a href="../research_life.html" class="block text-indigo-700 font-bold hover:bg-gray-100 p-2 rounded-md transition duration-300">KOR (한국어)</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-24"> 
+        <section id="research_life" class="section-padding bg-gray-50 shadow-sm rounded-lg mx-auto max-w-6xl my-8 p-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-indigo-800 mb-8 text-center">Lab Life</h2>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 mb-8 flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Research Equipment</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Our laboratory is equipped with high-performance workstations and an X-ray grating interferometer (talint edu). This allows us to efficiently conduct high-resolution image analysis and complex data processing.
+                        </p>
+                        <a href="equipment.html" class="mt-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                        View Equipment Detail
+                        </a>
+                    </div>
+                    <div class="md:w-1/2 mt-4 md:mt-0 slider-container" id="equipment-slider"></div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 mb-8 flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Conferences & Workshops</h3>
+                        <p class="text-gray-600 leading-relaxed">We actively participate in domestic and international conferences to present our research achievements and engage with global networks.</p>
+                    </div>
+                    <div class="md:w-1/2 mt-4 md:mt-0 slider-container" id="conference-slider"></div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Social Activities</h3>
+                        <p class="text-gray-600 leading-relaxed">Outside of research, we enjoy various activities for team building and fostering friendships among members.</p>
+                    </div>
+                    <div class="md:w-1/2 mt-4 md:mt-0 slider-container" id="social-slider"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">&copy; 2025 Lab. All rights reserved.</p>
+            <p class="text-gray-400">Research Lab: Room 119, Machinery Hall | Room 3109, Engineering Building 3</p>
+            <p class="text-gray-400">Professor's Office: Room 911, Machinery Hall</p>
+            <p class="text-gray-400">Contact: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+
+            // 경로 수정 (../pictures/ 형식)
+            const equipmentImages = [
+                '../pictures/equipment_pictures/3109호_talint.jpeg',
+                '../pictures/equipment_pictures/talint_edu_2.jpg',
+                '../pictures/life_pictures/3109호_실험실.jpeg',
+                '../pictures/life_pictures/119호_회의실.jpeg'
+            ];
+            const conferenceImages = [
+                '../pictures/life_pictures/오오성 박사 수상.jpg',
+                '../pictures/life_pictures/xnpig.jpg',
+                '../pictures/life_pictures/IEEE 발표.jpg',
+                '../pictures/life_pictures/엑스레이.jpg'
+            ];
+            const socialImages = [
+                '../pictures/life_pictures/회식이다.jpg',
+                '../pictures/life_pictures/260321_김영주박사세미나/코코브라운 점심_2.jpg',
+                '../pictures/life_pictures/260321_김영주박사세미나/세미나 단체사진_1.jpg',
+                '../pictures/life_pictures/동백섬덥다.jpg'
+            ];
+
+            function createSlider(containerId, images) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+
+                let currentIndex = 0;
+                const imgElements = [];
+
+                images.forEach((src, index) => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.className = 'slider-image';
+                    if (index === 0) img.classList.add('active');
+                    container.appendChild(img);
+                    imgElements.push(img);
+                });
+
+                if (images.length <= 1) return;
+
+                const prevBtn = document.createElement('button');
+                prevBtn.innerHTML = '&#10094;';
+                prevBtn.className = 'absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-70 text-white w-10 h-10 flex items-center justify-center rounded-full z-10 focus:outline-none transition-all duration-300';
+                
+                const nextBtn = document.createElement('button');
+                nextBtn.innerHTML = '&#10095;';
+                nextBtn.className = 'absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-70 text-white w-10 h-10 flex items-center justify-center rounded-full z-10 focus:outline-none transition-all duration-300';
+
+                container.appendChild(prevBtn);
+                container.appendChild(nextBtn);
+
+                function showImage(index) {
+                    imgElements[currentIndex].classList.remove('active');
+                    currentIndex = index;
+                    if (currentIndex < 0) currentIndex = images.length - 1;
+                    if (currentIndex >= images.length) currentIndex = 0;
+                    imgElements[currentIndex].classList.add('active');
+                }
+
+                prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+                nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+            }
+
+            createSlider('equipment-slider', equipmentImages);
+            createSlider('conference-slider', conferenceImages);
+            createSlider('social-slider', socialImages);
+        });
+    </script>
+</body>
+</html>
