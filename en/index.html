@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Lab - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        html { scroll-behavior: smooth; }
+        .section-padding { padding: 80px 0; }
+        .slider-image { transition: opacity 1s ease-in-out; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .hidden-fade { opacity: 0; z-index: 0; }
+        .visible-fade { opacity: 1; z-index: 10; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md fixed w-full z-50 top-0">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
+                <a href="index.html">INRS</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <ul class="hidden md:flex space-x-6" id="desktop-menu">
+                    <li><a href="intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">About Us</a></li>
+                    <li><a href="research_list.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Research</a></li>
+                    <li><a href="professor_intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Professor</a></li>
+                    <li><a href="members.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Members</a></li>
+                    <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Projects</a></li>
+                    <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Lab Life</a></li>
+                    <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Courses</a></li>
+                    <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Publications</a></li>
+                    <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Alumni</a></li>
+                </ul>
+                <a href="../index.html" class="text-xs font-bold bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2.5 py-1.5 rounded transition duration-300 ml-4">KOR</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">About Us</a></li>
+                <li><a href="research_list.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">Research</a></li>
+                <li><a href="alumni.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">Alumni</a></li>
+                <li><a href="../index.html" class="block text-indigo-700 font-bold hover:bg-gray-100 p-2 rounded-md transition duration-300">KOR (한국어)</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="relative w-full h-screen overflow-hidden mt-16">
+        <div id="image-slider" class="absolute inset-0 bg-gray-900"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-center p-4 z-20">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">Welcome to Our Lab</h1>
+                <p class="text-lg md:text-xl font-light mb-8">Exploring the future with cutting-edge technology and innovative ideas.</p>
+                <a href="intro.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="pt-8">
+        <section class="section-padding bg-white shadow-sm rounded-lg mx-auto max-w-6xl my-8 p-8 text-center">
+            <h2 class="text-3xl font-bold text-indigo-800 mb-4">Our Laboratory...</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Leads convergent research in X-ray and neutron imaging utilizing machine learning,<br class="hidden md:block"> 
+                contributing to academic advancement through state-of-the-art technologies and innovative visions.
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">&copy; 2025 Lab. All rights reserved.</p>
+            <p class="text-gray-400">Research Lab: Room 119, Machinery Hall | Room 3109, Engineering Building 3</p>
+            <p class="text-gray-400">Professor's Office: Room 911, Machinery Hall</p>
+            <p class="text-gray-400">Contact: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // 사진 경로가 en/ 폴더 기준으로 한 단계 올라가도록 수정되었습니다. (../)
+        const images = [
+            '../pictures/life_pictures/동백섬덥다.jpg',
+            '../pictures/life_pictures/119호_개인석.jpeg',
+            '../pictures/life_pictures/119호_회의실.jpeg',
+            '../pictures/equipment_pictures/3109호_talint.jpeg'
+        ];
+        let currentIdx = 0;
+        const slider = document.getElementById('image-slider');
+
+        function slide() {
+            const img = new Image();
+            img.src = images[currentIdx];
+            img.className = 'slider-image hidden-fade';
+            
+            img.onload = () => {
+                slider.appendChild(img);
+                setTimeout(() => img.classList.add('visible-fade'), 50);
+                
+                const oldImgs = slider.querySelectorAll('.slider-image');
+                if (oldImgs.length > 1) {
+                    oldImgs[0].classList.remove('visible-fade');
+                    oldImgs[0].classList.add('hidden-fade');
+                    setTimeout(() => oldImgs[0].remove(), 1000);
+                }
+                currentIdx = (currentIdx + 1) % images.length;
+            };
+        }
+        slide();
+        setInterval(slide, 5000);
+    </script>
+</body>
+</html>
