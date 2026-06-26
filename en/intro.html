@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Lab - Introduction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        .section-padding { padding: 80px 0; }
+        .text-lg.leading-relaxed, .text-base { line-height: 1.8; }
+        ul.list-disc li, ul.list-circle li { line-height: 1.6; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md fixed w-full z-50 top-0">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
+                <a href="index.html">INRS</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <ul class="hidden md:flex space-x-6" id="desktop-menu">
+                    <li><a href="intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">About Us</a></li>
+                    <li><a href="research_list.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Research</a></li>
+                    <li><a href="professor_intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Professor</a></li>
+                    <li><a href="members.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Members</a></li>
+                    <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Projects</a></li>
+                    <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Lab Life</a></li>
+                    <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Courses</a></li>
+                    <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Publications</a></li>
+                    <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Alumni</a></li>
+                </ul>
+                <a href="../intro.html" class="text-xs font-bold bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2.5 py-1.5 rounded transition duration-300 ml-4">KOR</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">About Us</a></li>
+                <li><a href="research_list.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">Research</a></li>
+                <li><a href="alumni.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">Alumni</a></li>
+                <li><a href="../intro.html" class="block text-indigo-700 font-bold hover:bg-gray-100 p-2 rounded-md transition duration-300">KOR (한국어)</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section id="intro" class="section-padding bg-white shadow-sm rounded-lg mx-auto max-w-6xl my-8 p-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-indigo-800 mb-6 text-center">About Our Lab</h2>
+
+                <div class="text-lg leading-relaxed text-gray-700 mb-8">
+                    <p class="text-2xl font-bold text-gray-900 mb-4">Intelligent Neutron and Radiological Science Lab (INRS Lab)</p>
+                    <p class="text-xl font-semibold text-indigo-700 mb-6">Pusan National University, Department of Nuclear Engineering</p>
+
+                    <p class="mb-4">
+                        The <span class="font-bold">Intelligent Neutron and Radiological Science Lab (INRS Lab)</span> aims to develop advanced imaging technologies utilizing radiation system design and neutron engineering. We pursue both academic breakthroughs and practical applications through radiation-based system optimization, neutron imaging techniques, and machine learning fusion.
+                    </p>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Core Research Fields</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-2 mb-4">
+                        <li>
+                            <span class="font-semibold text-indigo-600">Radiation System Design & Optimization</span>
+                            <ul class="list-circle list-inside ml-6 text-base">
+                                <li>Development and optimization of X-ray and neutron-based radiation systems.</li>
+                                <li>Design of medical imaging and industrial diagnostic systems using radiation tech.</li>
+                                <li>Analysis of diverse radiation interactions to implement high-end systems.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-semibold text-indigo-600">Neutron Imaging & Application Technologies</span>
+                            <ul class="list-circle list-inside ml-6 text-base">
+                                <li>Phase-contrast and dark-field imaging using neutron interferometry.</li>
+                                <li>Neutron-based non-destructive testing (NDT) and stress analysis applications.</li>
+                                <li>Commercialization of neutron imaging tech for industrial and medical use.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-semibold text-indigo-600">Machine Learning & Radiation Imaging Convergence</span>
+                            <ul class="list-circle list-inside ml-6 text-base">
+                                <li>Quality enhancement and reconstruction of radiation images via machine learning.</li>
+                                <li>Deep learning-based image denoising and data analysis automation.</li>
+                                <li>Optimization of radiation and neutron data through artificial intelligence.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-semibold text-indigo-600">Multidisciplinary Radiation Research</span>
+                            <ul class="list-circle list-inside ml-6 text-base">
+                                <li>Development of multi-modal imaging and diagnostics using radiation and neutrons.</li>
+                                <li>Exploring novel imaging methodologies via technical fusion.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Lab Vision</h3>
+                    <p class="font-bold text-indigo-700 mb-4">"INRS Lab: Illuminating the Unseen World with Radiation and Neutrons."</p>
+                    <p class="mb-4">
+                        We aim to achieve both scientific innovation and real-world impact through state-of-the-art research.
+                    </p>
+                    <ul class="list-disc list-inside ml-4 space-y-2 mb-4">
+                        <li><span class="font-semibold">Technical Convergence:</span> Proposing a new paradigm by combining radiation technology with neutron engineering.</li>
+                        <li><span class="font-semibold">Practical Application:</span> Developing practical engineering technologies derived from academic insights.</li>
+                        <li><span class="font-semibold">Future Talents:</span> Cultivating convergent researchers who will lead future fields.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Key Achievements</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-2 mb-4">
+                        <li><span class="font-semibold">International Publications:</span> Numerous papers published in world-renowned journals such as Scientific Reports, Physical Review Letters, and Journal of Instrumentation.</li>
+                        <li><span class="font-semibold">Technology Development:</span> X-ray/neutron system designs, and AI-based image optimization techniques.</li>
+                        <li><span class="font-semibold">Global Collaborations:</span> Active industrial and academic collaborations to deploy technologies in real fields.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Our Strengths</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-2 mb-4">
+                        <li><span class="font-semibold">State-of-the-art Equipment & Environment</span>
+                            <ul class="list-circle list-inside ml-6 text-base">
+                                <li>Advanced imaging instruments specialized for radiation system layouts.</li>
+                                <li>Abundant research infrastructure provided by Pusan National University.</li>
+                            </ul>
+                        </li>
+                        <li><span class="font-semibold">Global Research Network</span>
+                            <ul class="list-circle list-inside ml-6 text-base">
+                                <li>Joint projects with global institutes (e.g., National Institute of Standards and Technology, USA) and industries.</li>
+                                <li>Established networks in global conferences.</li>
+                            </ul>
+                        </li>
+                        <li><span class="font-semibold">Diverse Career Opportunities</span>
+                            <ul class="list-circle list-inside ml-6 text-base">
+                                <li>Alumni successfully entering industries, public research institutes, and medical centers.</li>
+                                <li>Opportunities to join highly innovative, practical projects.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <p class="text-xl font-bold text-indigo-700 mt-8 mb-4 text-center">Join INRS Lab!</p>
+                    <p class="text-center italic text-gray-600">"Be part of the challenge and innovation in radiation systems and neutron engineering. INRS Lab welcomes your creative ideas and passion."</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">&copy; 2025 Lab. All rights reserved.</p>
+            <p class="text-gray-400">Research Lab: Room 119, Machinery Hall | Room 3109, Engineering Building 3</p>
+            <p class="text-gray-400">Professor's Office: Room 911, Machinery Hall</p>
+            <p class="text-gray-400">Contact: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
