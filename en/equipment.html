@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Lab - Research Equipment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        .section-padding { padding: 80px 0; }
+        .image-container {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .vertical-image { max-height: 48rem; width: auto; }
+        .horizontal-image { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md fixed w-full z-50 top-0">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
+                <a href="index.html">INRS</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <ul class="hidden md:flex space-x-6" id="desktop-menu">
+                    <li><a href="intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">About Us</a></li>
+                    <li><a href="research_list.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Research</a></li>
+                    <li><a href="professor_intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Professor</a></li>
+                    <li><a href="members.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Members</a></li>
+                    <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Projects</a></li>
+                    <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Lab Life</a></li>
+                    <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Courses</a></li>
+                    <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Publications</a></li>
+                    <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Alumni</a></li>
+                </ul>
+                <a href="../equipment.html" class="text-xs font-bold bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2.5 py-1.5 rounded transition duration-300 ml-4">KOR</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">About Us</a></li>
+                <li><a href="research_list.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">Research</a></li>
+                <li><a href="alumni.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">Alumni</a></li>
+                <li><a href="../equipment.html" class="block text-indigo-700 font-bold hover:bg-gray-100 p-2 rounded-md transition duration-300">KOR (한국어)</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section id="equipment" class="section-padding bg-gray-50 shadow-sm rounded-lg mx-auto max-w-6xl my-8 p-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-indigo-800 mb-8 text-center">Research Equipment Details</h2>
+                <div class="flex flex-col space-y-12">
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-8">
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">High-Performance Workstations</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Our laboratory operates a variety of computational nodes for deep learning model training and large-scale data analytics.<br><br>
+                                • Dual NVIDIA RTX A6000 48GB Workstation<br>
+                                • Single NVIDIA RTX 6000 ADA 48GB Workstation<br>
+                                • Single NVIDIA RTX PRO 5000 Blackwell 48GB Workstation
+                            </p>
+                        </div>
+                        <div class="md:w-1/2 mt-4 md:mt-0 image-container">
+                            <img src="../pictures/equipment_pictures/워크스테이션 사양.png" alt="High-Performance Workstation Specs" class="rounded-lg shadow-md vertical-image object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">X-ray Grating Interferometer (talint edu)</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            The talint edu system is our core instrument used to perform non-destructive evaluations on material microstructures via X-ray grating interferometry setups. It delivers high-resolution radiographic metrics to back up materials science and innovative clinical diagnostic research.
+                        </p>
+                        <div class="image-container">
+                             <img src="../pictures/equipment_pictures/3109호_talint.jpeg" alt="X-ray Grating Interferometer System" class="rounded-lg shadow-md horizontal-image object-cover">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">&copy; 2025 Lab. All rights reserved.</p>
+            <p class="text-gray-400">Research Lab: Room 119, Machinery Hall | Room 3109, Engineering Building 3</p>
+            <p class="text-gray-400">Professor's Office: Room 911, Machinery Hall</p>
+            <p class="text-gray-400">Contact: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
