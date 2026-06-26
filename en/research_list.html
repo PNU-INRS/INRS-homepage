@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Lab - Research Fields</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        .section-padding { padding: 80px 0; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md fixed w-full z-50 top-0">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
+                <a href="index.html">INRS</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <ul class="hidden md:flex space-x-6" id="desktop-menu">
+                    <li><a href="intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">About Us</a></li>
+                    <li><a href="research_list.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Research</a></li>
+                    <li><a href="professor_intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Professor</a></li>
+                    <li><a href="members.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Members</a></li>
+                    <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Projects</a></li>
+                    <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Lab Life</a></li>
+                    <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Courses</a></li>
+                    <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Publications</a></li>
+                    <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">Alumni</a></li>
+                </ul>
+                <a href="../research_list.html" class="text-xs font-bold bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2.5 py-1.5 rounded transition duration-300 ml-4">KOR</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">About Us</a></li>
+                <li><a href="research_list.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">Research</a></li>
+                <li><a href="alumni.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">Alumni</a></li>
+                <li><a href="../research_list.html" class="block text-indigo-700 font-bold hover:bg-gray-100 p-2 rounded-md transition duration-300">KOR (한국어)</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section id="research-list" class="section-padding bg-gray-50 shadow-sm rounded-lg mx-auto max-w-6xl my-8 p-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-indigo-800 mb-8 text-center">Major Research Fields</h2>
+                <div class="grid grid-cols-1 gap-8">
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">X-ray Grating Interferometer (Laboratory Source)</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Research on analyzing microstructures and defects of materials utilizing laboratory-based X-ray grating interferometry. This contributes significantly to non-destructive testing and materials science fields.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/Laboratory_Source.jpg" alt="Laboratory X-ray Grating Interferometer" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">X-ray Grating Interferometer (Synchrotron Source)</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                High-resolution X-ray grating interferometry research using synchrotron radiation, enabling more precise and in-depth analysis of materials.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/Synchrotron_Source.jpg" alt="Synchrotron X-ray Grating Interferometer" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Neutron Imaging Research</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Non-destructive analysis of internal structures of materials that are hard to visualize via X-rays, such as hydrogen and lithium, using neutron imaging methods.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/Neutron_Imaging_Research.jpg" alt="Neutron Imaging" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Radiation Therapy Research</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Executing optimization studies for radiation therapy technologies and the development of innovative treatment solutions.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/Radiation_Therapy_Research.jpg" alt="Radiation Therapy Research" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Interior Tomography Algorithm</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Focuses on developing tomography algorithms that precisely reconstruct internal configurations from a limited field of view.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/Interior_Tomography_Algorithm.jpg" alt="Interior Tomography Algorithm" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Micro-CT</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Research on Micro-CT technologies and applications that visualize 3D configurations of fine samples in high resolutions.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/Micro_CT.jpg" alt="Micro-CT" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Industrial Phase Contrast Radiography</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Developing and applying phase-contrast radiography imaging technologies designed for non-destructive inspections in industrial locations.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/Industrial_Phase_Contrast_Radiography.jpg" alt="Industrial Phase Contrast Radiography" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">K-edge Interior Tomography</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                An interior tomography technique that analyzes the composition of materials utilizing the K-edge absorption energy of specific elements.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/K-edge_Interior_Tomography.jpg" alt="K-edge Interior Tomography" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Neutron Experiment using Compact Neutron Sources</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Neutron experiments and application research using compact neutron sources to enhance accessibility and expand utilization fields.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/Compact_Neurtron_Source.jpg" alt="Neutron Experiment using Compact Neutron Sources" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row items-center md:space-x-6">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Environmental Radiation</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Contributing to radiation safety and environmental protection through the advancement of environmental radiation measurement and analysis techniques.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 mt-4 md:mt-0">
+                            <img src="../pictures/project_pictures/Environmental_Radiation.jpg" alt="Environmental Radiation" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">&copy; 2025 Lab. All rights reserved.</p>
+            <p class="text-gray-400">Research Lab: Room 119, Machinery Hall | Room 3109, Engineering Building 3</p>
+            <p class="text-gray-400">Professor's Office: Room 911, Machinery Hall</p>
+            <p class="text-gray-400">Contact: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
