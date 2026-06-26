@@ -34,19 +34,21 @@
             <div class="text-2xl font-bold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">
                 <a href="index.html">INRS</a>
             </div>
-            <ul class="hidden md:flex space-x-6" id="desktop-menu">
-                <li><a href="intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">인사말</a></li>
-                <li><a href="research_list.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">연구목록</a></li>
-                <li><a href="professor_intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">교수소개</a></li>
-                <li><a href="members.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">구성원</a></li>
-                <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">프로젝트</a></li>
-                <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">연구라이프</a></li>
-                <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">수업</a></li>
-                <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">논문</a></li>
-                <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">졸업생 현황</a></li>
-            </ul>
-            <a href="en/index.html" class="text-xs font-bold bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2.5 py-1.5 rounded transition duration-300 ml-4">ENG</a>
-            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none focus:text-indigo-700">
+            <div class="flex items-center space-x-6">
+                <ul class="hidden md:flex space-x-6" id="desktop-menu">
+                    <li><a href="intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">인사말</a></li>
+                    <li><a href="research_list.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">연구목록</a></li>
+                    <li><a href="professor_intro.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">교수소개</a></li>
+                    <li><a href="members.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">구성원</a></li>
+                    <li><a href="projects.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">프로젝트</a></li>
+                    <li><a href="research_life.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">연구라이프</a></li>
+                    <li><a href="courses.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">수업</a></li>
+                    <li><a href="publications.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">논문</a></li>
+                    <li><a href="alumni.html" class="text-gray-700 hover:text-indigo-700 font-medium px-3 py-2 rounded-md transition duration-300">졸업생 현황</a></li>
+                </ul>
+                <a href="en/members.html" class="text-xs font-bold bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-2.5 py-1.5 rounded transition duration-300 ml-4">ENG</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -54,27 +56,11 @@
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
             <ul class="flex flex-col space-y-2 p-4">
-                <li><a href="intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">인사말</a></li>
-                <li><a href="research_list.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구목록</a></li>
-                <li><a href="professor_intro.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">교수소개</a></li>
                 <li><a href="members.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">구성원</a></li>
-                <li><a href="projects.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">프로젝트</a></li>
-                <li><a href="research_life.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">연구라이프</a></li>
-                <li><a href="courses.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">수업</a></li>
-                <li><a href="publications.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">논문</a></li>
-                <li><a href="alumni.html" class="block text-gray-700 hover:bg-gray-100 p-2 rounded-md transition duration-300">졸업생 현황</a></li>
+                <li><a href="en/members.html" class="block text-indigo-700 font-bold hover:bg-gray-100 p-2 rounded-md transition duration-300">ENG (English)</a></li>
             </ul>
         </div>
     </header>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        });
-    </script>
 
     <main class="pt-24">
         <section id="members" class="section-padding bg-gray-50 shadow-sm rounded-lg mx-auto max-w-6xl my-8 p-8">
@@ -82,122 +68,152 @@
                 <h2 class="text-4xl font-bold text-indigo-800 mb-8 text-center">구성원</h2>
 
                 <h3 class="category-heading">박사 후 연구생</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=Amin" alt="AMIN KHALIQ 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">AMIN KHALIQ</h3>
-                        <p class="text-gray-600">박사 후 연구생</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Fusion of X-ray and neutron imaging modalities to enable advanced AI-driven analysis</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-1">AMIN KHALIQ</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-4">박사 후 연구생</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">주요 연구:</span> Fusion of X-ray and neutron imaging modalities to enable advanced AI-driven analysis</p>
+                        </div>
                     </div>
                 </div>
 
                 <h3 class="category-heading">박사과정</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=KDS" alt="김대승 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">김대승</h3>
-                        <p class="text-gray-600">박사과정</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Differentiable Forward Modeling for Talbot-Lau Neutron Phase Imaging</p>
-                        <p class="text-gray-600 text-sm mt-1 font-bold">KAIST 파견 연구 중</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">김대승</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">박사과정</p>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4"><span class="font-semibold text-gray-700">주요 연구:</span> Differentiable Forward Modeling for Talbot-Lau Neutron Phase Imaging</p>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-amber-700 text-xs font-bold px-2.5 py-1 rounded border border-amber-200 self-start">KAIST 파견 연구 중</span>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=WJH" alt="원준혁 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">원준혁</h3>
-                        <p class="text-gray-600">박사과정</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Hybrid Deep Interpolation for Interior Neutron CT Using Radon Domain Priors</p>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">원준혁</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">박사과정</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">주요 연구:</span> Hybrid Deep Interpolation for Interior Neutron CT Using Radon Domain Priors</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=SJY" alt="손준영 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">손준영</h3>
-                        <p class="text-gray-600">박사과정</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Deep Bragg Edge Profiling for Strain Mapping in Neutron Transmission Imaging</p>
-                        <p class="text-gray-600 text-sm mt-1 font-bold">Korea Atomic Energy Research Institute 파견 연구 중</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">손준영</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">박사과정</p>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4"><span class="font-semibold text-gray-700">주요 연구:</span> Deep Bragg Edge Profiling for Strain Mapping in Neutron Transmission Imaging</p>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-amber-700 text-xs font-bold px-2.5 py-1 rounded border border-amber-200 self-start">한국원자력연구원 파견 연구 중</span>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=HYM" alt="허유민 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">허유민</h3>
-                        <p class="text-gray-600">박사과정</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Learning Phase and Dark-field Signals from Single-Grating Neutron Imaging</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">허유민</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">박사과정</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">주요 연구:</span> Learning Phase and Dark-field Signals from Single-Grating Neutron Imaging</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=LTG" alt="이태규 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">이태규</h3>
-                        <p class="text-gray-600">박사과정(part-time)</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: (예정)</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">이태규</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">박사과정 (Part-time)</p>
+                            <p class="text-gray-400 text-sm italic"><span class="font-semibold text-gray-500">주요 연구:</span> 예정</p>
+                        </div>
                     </div>
                 </div>
 
                 <h3 class="category-heading">석사과정</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=LSH" alt="이상호 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">이상호</h3>
-                        <p class="text-gray-600">석사과정</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Deep Few-View Reconstruction for Time-Constrained Neutron Tomography</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">이상호</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">석박사 통합과정</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">주요 연구:</span> Deep Few-View Reconstruction for Time-Constrained Neutron Tomography</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=LSH" alt="이수현 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">이수현</h3>
-                        <p class="text-gray-600">석사과정(part-time)</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: (예정)</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">이수현</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">석사과정 (Part-time)</p>
+                            <p class="text-gray-400 text-sm italic"><span class="font-semibold text-gray-500">주요 연구:</span> 예정</p>
+                        </div>
                     </div>
                 </div>
 
                 <h3 class="category-heading">학부 연구생</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="pictures/profile_pictures/미뇽.webp" alt="조민영 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">조민영</h3>
-                        <p class="text-gray-600">학석사 연계과정</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Transformer-based multimodal image fusion and restoration for neutron and X-ray tomography</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">조민영</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">학석사 연계과정</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">주요 연구:</span> Transformer-based multimodal image fusion and restoration for neutron and X-ray tomography</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=KGW" alt="김관우 연구원 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">김관우</h3>
-                        <p class="text-gray-600">학부 연구생</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Conditional Diffusion Model for Synthetic Neutron-Xray Tomographic Fusion</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">김관우</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">학부 연구생</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">주요 연구:</span> Conditional Diffusion Model for Synthetic Neutron-Xray Tomographic Fusion</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=CJW" alt="최재원 연구생 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">최재원</h3>
-                        <p class="text-gray-600">학부 연구생</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Design of mechanical apparatus of X-ray grating interferometer</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">최재원</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">학부 연구생</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">주요 연구:</span> Design of mechanical apparatus of X-ray grating interferometer</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=ISH" alt="임성현 연구생 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">임성현</h3>
-                        <p class="text-gray-600">학부 연구생</p>
-                        <p class="text-gray-600 text-sm mt-1">업무: Facility/Computing support of Lab 3109</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">임성현</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">학부 연구생</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">업무:</span> Facility/Computing support of Lab 3109</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=JHS" alt="정환석 연구생 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">정환석</h3>
-                        <p class="text-gray-600">학부 연구생</p>
-                        <p class="text-gray-600 text-sm mt-1">업무: Facility/Computing support of Lab 119</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">정환석</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">학부 연구생</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">업무:</span> Facility/Computing support of Lab 119</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=KDY" alt="금동엽 연구생 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">금동엽</h3>
-                        <p class="text-gray-600">학부 연구생</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: Noise2Noise</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">금동엽</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">학부 연구생</p>
+                            <p class="text-gray-600 text-sm leading-relaxed"><span class="font-semibold text-gray-700">주요 연구:</span> Noise2Noise</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=KSW" alt="김승우 연구생 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">김승우</h3>
-                        <p class="text-gray-600">학부 연구생</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: (예정)</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">김승우</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">학부 연구생</p>
+                            <p class="text-gray-400 text-sm italic"><span class="font-semibold text-gray-500">주요 연구:</span> 예정</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=CMY" alt="이재윤 연구생 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">이재윤</h3>
-                        <p class="text-gray-600">학부 연구생</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: (예정)</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">이재윤</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">학부 연구생</p>
+                            <p class="text-gray-400 text-sm italic"><span class="font-semibold text-gray-500">주요 연구:</span> 예정</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
-                        <img src="https://placehold.co/150x150/e0e7ff/4338ca?text=CMY" alt="김아영 연구생 사진" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-2 border-indigo-300">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">김아영</h3>
-                        <p class="text-gray-600">학부 연구생</p>
-                        <p class="text-gray-600 text-sm mt-1">주요 연구: (예정)</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">김아영</h3>
+                            <p class="text-indigo-600 font-medium text-sm mb-3">학부 연구생</p>
+                            <p class="text-gray-400 text-sm italic"><span class="font-semibold text-gray-500">주요 연구:</span> 예정</p>
+                        </div>
                     </div>
                 </div>
 
@@ -213,5 +229,12 @@
             <p class="text-gray-400">문의: <a href="mailto:seunglee@pusan.ac.kr" class="text-indigo-400 hover:underline">seunglee@pusan.ac.kr</a></p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
